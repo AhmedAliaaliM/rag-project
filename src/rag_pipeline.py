@@ -105,16 +105,26 @@ def ask(query):
 
 
 if __name__ == "__main__":
-    print("RAG Pipeline — Week 2 Day 3")
-    print("Loading retriever...\n")
+    print("RAG Pipeline — Week 2 Day 4")
+    print("Loading retriever once...\n")
 
-    # Test with 3 questions from your papers
+    # Load ONCE, reuse for all questions
+    model, collection = load_retriever()
+
     questions = [
         "What methods are used for multilingual hate speech detection?",
         "How does federated learning protect data privacy?",
-        "What is the difference between SHAP and LIME for explainable AI?"
+        "What is the difference between SHAP and LIME for explainable AI?",
+        "What is BERTopic and how does it differ from LDA?",
+        "How does predictive maintenance work for industrial equipment?",
     ]
 
     for q in questions:
-        ask(q)
-        print("\n" + "="*60 + "\n")
+        print(f"\nQuestion: {q}")
+        print("-" * 50)
+        chunks = retrieve(q, model, collection)
+        print(f"Sources: {list(set(c['source'] for c in chunks))}")
+        prompt = build_prompt(q, chunks)
+        answer = generate_answer(prompt)
+        print(f"\nAnswer:\n{answer}")
+        print("\n" + "="*60)

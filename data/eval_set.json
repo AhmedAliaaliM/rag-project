@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "What methods are used for multilingual hate speech detection?",
+    "expected_answer": "LASER+LR for low-resource, BERT-based models for high-resource settings",
+    "expected_source": "2004.06465v3.pdf"
+  },
+  {
+    "id": 2,
+    "question": "How does federated learning protect data privacy?",
+    "expected_answer": "Data stays on device, only model updates are shared",
+    "expected_source": "2102.01255v1.pdf"
+  },
+  {
+    "id": 3,
+    "question": "What is BERTopic and how does it compare to LDA?",
+    "expected_answer": "BERTopic uses BERT embeddings for topic modeling, outperforms LDA on short texts",
+    "expected_source": "2212.08459v1.pdf"
+  },
+  {
+    "id": 4,
+    "question": "What deep learning model is used for demand forecasting?",
+    "expected_answer": "LSTM (Long Short-Term Memory) neural networks",
+    "expected_source": "2008.08522v1.pdf"
+  },
+  {
+    "id": 5,
+    "question": "What is concept drift in machine learning?",
+    "expected_answer": "Change in data distribution over time causing model performance degradation",
+    "expected_source": "2203.11070v1.pdf"
+  },
+  {
+    "id": 6,
+    "question": "What is differential privacy?",
+    "expected_answer": "A formal privacy guarantee that limits what can be learned about individuals from a dataset",
+    "expected_source": "2203.12609v1.pdf"
+  },
+  {
+    "id": 7,
+    "question": "What ensemble methods are used for credit card fraud detection?",
+    "expected_answer": "Random Forest, XGBoost, and stacking ensemble methods",
+    "expected_source": "2101.01142v1.pdf"
+  },
+  {
+    "id": 8,
+    "question": "How does SHAP explain machine learning predictions?",
+    "expected_answer": "SHAP assigns each feature an importance value based on Shapley values from game theory",
+    "expected_source": "2103.00949v1.pdf"
+  },
+  {
+    "id": 9,
+    "question": "What is TinyML?",
+    "expected_answer": "Running machine learning models on resource-constrained edge devices with low power",
+    "expected_source": "2102.01255v1.pdf"
+  },
+  {
+    "id": 10,
+    "question": "What languages are covered in the multilingual hate speech study?",
+    "expected_answer": "9 languages from 16 different sources",
+    "expected_source": "2004.06465v3.pdf"
+  },
+  {
+    "id": 11,
+    "question": "What is the difference between a data lake and a data warehouse?",
+    "expected_answer": "Data lakes store raw unstructured data, warehouses store structured processed data",
+    "expected_source": "2106.09592v2.pdf"
+  },
+  {
+    "id": 12,
+    "question": "How is customer churn prediction done with explainability?",
+    "expected_answer": "XGBoost model with SHAP values to explain which features drive churn",
+    "expected_source": "2303.00960v1.pdf"
+  },
+  {
+    "id": 13,
+    "question": "What is transfer learning for low-resource languages?",
+    "expected_answer": "Using models trained on high-resource languages and fine-tuning for low-resource ones",
+    "expected_source": "2502.02722v1.pdf"
+  },
+  {
+    "id": 14,
+    "question": "What sensors are used for predictive maintenance in induction motors?",
+    "expected_answer": "IoT sensors measuring vibration, temperature, and current",
+    "expected_source": "2310.14949v1.pdf"
+  },
+  {
+    "id": 15,
+    "question": "How are LLMs used for video summarization?",
+    "expected_answer": "LLMs score keyframe and segment importance to generate summaries",
+    "expected_source": "2504.11199v2.pdf"
+  },
+  {
+    "id": 16,
+    "question": "What is anomaly detection in IoT sensor streams?",
+    "expected_answer": "Real-time detection of unusual patterns in industrial sensor data with concept drift adaptation",
+    "expected_source": "2601.03085v1.pdf"
+  },
+  {
+    "id": 17,
+    "question": "What deep learning architectures are used for human action recognition?",
+    "expected_answer": "CNNs, RNNs, LSTMs, and Transformer-based models for video classification",
+    "expected_source": "2208.03775v1.pdf"
+  },
+  {
+    "id": 18,
+    "question": "How does Apache Spark handle large scale data processing?",
+    "expected_answer": "Distributed in-memory computation across clusters using RDDs and DataFrames",
+    "expected_source": "2510.19012v1.pdf"
+  },
+  {
+    "id": 19,
+    "question": "What graph-based methods are used for speech emotion recognition?",
+    "expected_answer": "Graph neural networks combining acoustic and linguistic features",
+    "expected_source": "2406.07437v2.pdf"
+  },
+  {
+    "id": 20,
+    "question": "What CNN architectures are used for chest X-ray classification?",
+    "expected_answer": "ResNet, DenseNet, and EfficientNet benchmarked for thoracic disease detection",
+    "expected_source": "2502.10614v1.pdf"
+  }
+]
