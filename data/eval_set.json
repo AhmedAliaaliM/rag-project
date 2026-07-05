@@ -20,7 +20,7 @@
   {
     "id": 4,
     "question": "What deep learning model is used for demand forecasting?",
-    "expected_answer": "LSTM (Long Short-Term Memory) neural networks",
+    "expected_answer": "LSTM neural networks for retail sales forecasting",
     "expected_source": "2008.08522v1.pdf"
   },
   {
@@ -31,14 +31,14 @@
   },
   {
     "id": 6,
-    "question": "What is differential privacy?",
+    "question": "What is differential privacy and how is it used in machine learning?",
     "expected_answer": "A formal privacy guarantee that limits what can be learned about individuals from a dataset",
-    "expected_source": "2203.12609v1.pdf"
+    "expected_source": "2102.01255v1.pdf"
   },
   {
     "id": 7,
-    "question": "What ensemble methods are used for credit card fraud detection?",
-    "expected_answer": "Random Forest, XGBoost, and stacking ensemble methods",
+    "question": "What machine learning techniques are used for fake news detection?",
+    "expected_answer": "Ensemble methods including Random Forest, SVM, and deep learning approaches",
     "expected_source": "2101.01142v1.pdf"
   },
   {
@@ -49,7 +49,7 @@
   },
   {
     "id": 9,
-    "question": "What is TinyML?",
+    "question": "What is TinyML and what devices does it target?",
     "expected_answer": "Running machine learning models on resource-constrained edge devices with low power",
     "expected_source": "2102.01255v1.pdf"
   },
