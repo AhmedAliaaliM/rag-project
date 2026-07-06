@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "src")
+from reranker import rerank
 import json
 import time
 from pathlib import Path
@@ -22,12 +25,13 @@ def load_retriever():
     return model, collection
 
 
-def retrieve(query, model, collection):
+def retrieve(query, model, collection, top_k=TOP_K):
     query_embedding = model.encode(query).tolist()
     results = collection.query(
         query_embeddings=[query_embedding],
-        n_results=TOP_K
+        n_results=top_k
     )
+    
     chunks = []
     for doc, meta in zip(
         results["documents"][0],
@@ -98,9 +102,12 @@ def run_eval():
         question = item["question"]
         expected_source = item["expected_source"]
 
-        # Retrieve
-        chunks = retrieve(question, model, collection)
-        source_hit = check_source_hit(chunks, expected_source)
+        
+        # Retrieve + rerank
+        chunks = retrieve(item["question"], model, collection, top_k=10)
+        reranked = rerank(item["question"], chunks, top_n=4)
+        source_hit = check_source_hit(reranked, expected_source)
+        chunks = reranked
         if source_hit:
             source_hits += 1
 

@@ -4,6 +4,7 @@ from sentence_transformers import SentenceTransformer
 import chromadb
 import requests
 import json
+from reranker import rerank
 
 CHROMA_DIR = Path("chroma_experiments")
 COLLECTION_NAME = "v2_sentence_300"
@@ -109,26 +110,38 @@ def ask(query):
 
 
 if __name__ == "__main__":
-    print("RAG Pipeline — Week 2 Day 4")
-    print("Loading retriever once...\n")
+    import sys
+    sys.path.insert(0, "src")
+    from reranker import rerank
 
-    # Load ONCE, reuse for all questions
+    print("RAG Pipeline with Re-ranking — Week 4")
+    print("Loading retriever...\n")
+
     model, collection = load_retriever()
 
     questions = [
         "What methods are used for multilingual hate speech detection?",
         "How does federated learning protect data privacy?",
-        "What is the difference between SHAP and LIME for explainable AI?",
-        "What is BERTopic and how does it differ from LDA?",
+        "What is BERTopic and how does it compare to LDA?",
         "How does predictive maintenance work for industrial equipment?",
+        "What deep learning model is used for demand forecasting?",
     ]
 
     for q in questions:
         print(f"\nQuestion: {q}")
         print("-" * 50)
-        chunks = retrieve(q, model, collection)
-        print(f"Sources: {list(set(c['source'] for c in chunks))}")
-        prompt = build_prompt(q, chunks)
+
+        # Retrieve more candidates (10 instead of 5)
+        chunks = retrieve(q, model, collection, top_k=10)
+        print(f"Retrieved {len(chunks)} candidates")
+
+        # Re-rank down to best 3
+        reranked = rerank(q, chunks, top_n=3)
+        print(f"Re-ranked to top 3")
+        print(f"Sources: {list(set(c['source'] for c in reranked))}")
+
+        # Generate from re-ranked chunks
+        prompt = build_prompt(q, reranked)
         answer = generate_answer(prompt)
         print(f"\nAnswer:\n{answer}")
         print("\n" + "="*60)
