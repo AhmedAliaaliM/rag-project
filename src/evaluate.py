@@ -5,8 +5,8 @@ from sentence_transformers import SentenceTransformer
 import chromadb
 import requests
 
-CHROMA_DIR = Path("chroma_db")
-COLLECTION_NAME = "rag_papers"
+CHROMA_DIR = Path("chroma_experiments")
+COLLECTION_NAME = "v2_sentence_300"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 LLM_MODEL = "llama3.2:3b"

@@ -5,8 +5,8 @@ import chromadb
 import requests
 import json
 
-CHROMA_DIR = Path("chroma_db")
-COLLECTION_NAME = "rag_papers"
+CHROMA_DIR = Path("chroma_experiments")
+COLLECTION_NAME = "v2_sentence_300"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 LLM_MODEL = "llama3.2:3b"
@@ -20,11 +20,16 @@ def load_retriever():
     return model, collection
 
 
-def retrieve(query, model, collection, top_k=TOP_K):
+
+def retrieve(query, model, collection, top_k=TOP_K, filter_source=None):
     query_embedding = model.encode(query).tolist()
+
+    where = {"source": filter_source} if filter_source else None
+
     results = collection.query(
         query_embeddings=[query_embedding],
-        n_results=top_k
+        n_results=top_k,
+        where=where
     )
     chunks = []
     for doc, meta in zip(
@@ -37,7 +42,6 @@ def retrieve(query, model, collection, top_k=TOP_K):
             "chunk_index": meta["chunk_index"]
         })
     return chunks
-
 
 def build_prompt(query, chunks):
     context = ""

@@ -3,7 +3,7 @@
     "total": 20,
     "source_hits": 20,
     "source_hit_rate_pct": 100.0,
-    "avg_latency_seconds": 1229.0
+    "avg_latency_seconds": 25.2
   },
   "results": [
     {
@@ -14,8 +14,8 @@
       "retrieved_sources": [
         "2004.06465v3.pdf"
       ],
-      "answer": "The methods used for multilingual hate speech detection include Deep Learning Models, specifically LASER+LR and BERT-based models.\n\nSource: Source 3: 2004.06465v3.pdf (Table 5)",
-      "latency_seconds": 29.1
+      "answer": "I don't have enough information in the provided papers to answer this. The only mention of a method for hate speech detection is that the authors utilize existing hate speech resources to develop models (Source 3), but no specific details on the methods or techniques used are mentioned in the provided context.",
+      "latency_seconds": 8.8
     },
     {
       "id": 2,
@@ -23,11 +23,13 @@
       "expected_source": "2102.01255v1.pdf",
       "source_hit": true,
       "retrieved_sources": [
-        "2102.01255v1.pdf",
-        "2106.09592v2.pdf"
+        "2601.03085v1.pdf",
+        "2106.09592v2.pdf",
+        "2510.04023v1.pdf",
+        "2102.01255v1.pdf"
       ],
-      "answer": "According to Source 2: 2102.01255v1.pdf, Federated Learning protects data privacy by allowing data processing on the device, which results in better data privacy and better data protection.\n\nSource 2: 2102.01255v1.pdf",
-      "latency_seconds": 29.4
+      "answer": "According to Source 4 (2601.03085v1.pdf), federated learning \"can be time-consuming\" due to privacy concerns, and it's not always feasible or available for training.\n\nHowever, the answer is not a direct statement about how federated learning protects data privacy. The source doesn't explicitly mention the protection of data privacy in the context of federated learning.\n\nBut according to Source 3 (2510.04023v1.pdf), \"Human oversight enables domain experts to validate outputs before deployment or intervene\", which implies that there are mechanisms in place to monitor and regulate the use of sensitive data, but it's not directly related to federated learning.\n\nSince I don't have enough information about how federated learning specifically protects data privacy from the provided papers, my answer is:\n\nI don't have enough information in the provided papers to answer this.",
+      "latency_seconds": 24.2
     },
     {
       "id": 3,
@@ -37,8 +39,8 @@
       "retrieved_sources": [
         "2212.08459v1.pdf"
       ],
-      "answer": "According to Source 1 [2212.08459v1.pdf], BERTopic is a topic modeling algorithm used for analyzing short multi-domain text.\n\nRegarding the comparison with LDA, according to Sources 1-5, BERTopic and LDA are both widely used topic models. The authors of the paper compare their performance on generalizability, coherence, and diversity scores.\n\nFrom Source 4 [2212.08459v1.pdf], we know that BERTopic's HDBSCAN clustering is more robust to short documents compared to LDA, as it discards 74% of the documents by labeling them as outliers, leading to results with little value in practice. However, BERTopic's k-Means clustering outperforms LDA in generalizing better across different domains on short text.\n\nTherefore, I can conclude that BERTopic is a topic modeling algorithm that compares favorably to LDA in terms of generalizability and robustness to short documents.",
-      "latency_seconds": 52.8
+      "answer": "BERTopic is a topic modeling algorithm that utilizes a deep learning approach. \n\nAccording to [Source 2], it applies BERTopic to unconventional data sets, which suggests that it is an extension or adaptation of the BERT model for topic modeling.\n\nIn comparison to Latent Dirichlet Allocation (LDA), BERTopic outperforms LDA in metrics such as coherence and diversity scores. Specifically, [Source 3] reports that LDA has coherence and diversity scores of 0.031 and 0.718, respectively, whereas the evaluation results for BERTopic are not provided.\n\nHowever, it is mentioned in [Source 4] that experiments on generalizability reveal that BERTopic discards more documents labeled as \"out-of-topic\" compared to LDA, with 74% of the documents being discarded by BERTopic.",
+      "latency_seconds": 35.0
     },
     {
       "id": 4,
@@ -48,8 +50,8 @@
       "retrieved_sources": [
         "2008.08522v1.pdf"
       ],
-      "answer": "The deep learning model used for demand forecasting is Long Short-Term Memory (LSTM) neural networks.\n\n[Source 3: 2008.08522v1.pdf]",
-      "latency_seconds": 26.9
+      "answer": "The deep learning model used for demand forecasting is Long Short-Term Memory (LSTM) neural networks.",
+      "latency_seconds": 19.1
     },
     {
       "id": 5,
@@ -59,8 +61,8 @@
       "retrieved_sources": [
         "2203.11070v1.pdf"
       ],
-      "answer": "According to Source 4 [2203.11070v1.pdf], concept drift is a type of change that occurs when changes are made to the probability distribution P(y|X) without necessarily affecting the data distribution P(X). This type of drift is referred to as \"actual drift\" and is characterized by the absence of a change in the data distribution.\n\nNote: Source 4 specifically mentions two types of concept drift, but only one type (actual drift) is mentioned as being the focus of this paper.",
-      "latency_seconds": 32.2
+      "answer": "According to Source 2: 2203.11070v1.pdf, \"Concept drift is formally defined as a change in the joint distribution between two sets of data.\"\n\nSource 4: 2203.11070v1.pdf also mentions that Concept drift occurs when some data samples belong to two different categories, implying a change in the underlying probability distribution.\n\nNote that Source 5: 2203.11070v1.pdf mentions that there is no unified terminology for concept drift types, but Sources 2 and 4 provide definitions that align with the general understanding of concept drift as a change in the joint distribution or a shift in the underlying categories.",
+      "latency_seconds": 32.4
     },
     {
       "id": 6,
@@ -68,13 +70,14 @@
       "expected_source": "2102.01255v1.pdf",
       "source_hit": true,
       "retrieved_sources": [
-        "2102.01255v1.pdf",
-        "2601.03085v1.pdf",
+        "2103.00949v1.pdf",
+        "2510.04023v1.pdf",
         "2208.03775v1.pdf",
-        "2103.00949v1.pdf"
+        "2303.00960v1.pdf",
+        "2102.01255v1.pdf"
       ],
       "answer": "I don't have enough information in the provided papers to answer this.",
-      "latency_seconds": 24.8
+      "latency_seconds": 17.9
     },
     {
       "id": 7,
@@ -84,8 +87,8 @@
       "retrieved_sources": [
         "2101.01142v1.pdf"
       ],
-      "answer": "According to Source 1 and Source 3, advanced Machine Learning Techniques (such as those focused on ML approaches) are used for fake news detection. \n\n(Source 1, Section 3): \"Theremainderofthepaperisstructuredinthefollowingmanner: inSection1,previoussurveysareoverviewed...and Section3constitutesthein-depthsystematicmappingofMLbasedfakenewsdetectionmethods...\"\n\n(Source 3, Introduction): \"Moreover, in addition to overviewing current methods, we propose our own analysis criterion and categorization. We also suggest expanding the context of methods applicable for such task and describing the datasets, initiatives and current projects, as well as future challenges.\"\n\nNote that Source 2 does not provide specific information on machine learning techniques used for fake news detection.",
-      "latency_seconds": 48.7
+      "answer": "According to Source 3: 2101.01142v1.pdf, one of the most obvious approaches to automatically recognizing fake news is Natural Language Processing (NLP).\n\nSource 3: 2101.01142v1.pdf",
+      "latency_seconds": 23.9
     },
     {
       "id": 8,
@@ -96,8 +99,8 @@
         "2303.00960v1.pdf",
         "2103.00949v1.pdf"
       ],
-      "answer": "According to Source 1 [2303.00960v1.pdf], SHAP explains machine learning predictions by providing a framework called SHAP (SHapley Additive ExPlanations) that interprets the output of machine learning models. This allows for \"achieve accurate predictions early on in Customer interaction\" and provides an explanation for the model's outcome.\n\nSource 2 [2303.00960v1.pdf] also mentions SHAP as a method to interpret machine learning models, stating that it uses Shapley values to provide explanations for the output of an ensemble of gradient boosting machines.\n\nAdditionally, Source 4 [2103.00949v1.pdf] briefly mentions SHAP, describing it as a technique used to attribute changes in expected model predictions to individual features.\n\nSource 5 is not directly related to explaining machine learning predictions using SHAP.\n\nIt's worth noting that the exact mechanism of how SHAP works and its theoretical background are beyond the scope of this paper (Source 4), but rather can be found in other sources.",
-      "latency_seconds": 52.5
+      "answer": "According to Source 2: 2103.00949v1.pdf, SHAP explains machine learning predictions by attributing the change in the expected model prediction when conditioning on a particular feature. This is depicted in Figure 2, which shows SHAP values assigned to each feature, representing the impact of that feature on the model's output.\n\nSource: [Source 2: 2103.00949v1.pdf]",
+      "latency_seconds": 31.3
     },
     {
       "id": 9,
@@ -107,8 +110,8 @@
       "retrieved_sources": [
         "2102.01255v1.pdf"
       ],
-      "answer": "According to Source 1: 2102.01255v1.pdf, TinyML is a framework developed by Google that focuses on machine learning implementation on mobile embedded devices.\n\nTinyML targets MCU-powered devices.",
-      "latency_seconds": 24.2
+      "answer": "According to Source 4 [2102.01255v1.pdf], TinyML refers to \"Tiny Machine Learning\", which implies that it targets devices or embedded systems with limited computational resources.\n\nUnfortunately, the source papers do not explicitly mention specific device types targeted by TinyML. However, they do provide general categories of applications where TinyML will enable innovations, such as consumer electronics and ubiquitous surveillance systems (Source 4).",
+      "latency_seconds": 23.8
     },
     {
       "id": 10,
@@ -118,8 +121,8 @@
       "retrieved_sources": [
         "2004.06465v3.pdf"
       ],
-      "answer": "The languages covered in the multilingual hate speech study are 9 different languages, with specific languages mentioned for low and high resource settings as follows:\n\n* Low resource setting:\n\t+ Arabic (monolingual)\n\t+ English (multilingual)\n* High resource setting:\n\t+ Arabic (multilingual)\n\t+ English (multilingual)\n\nThe paper does not provide a comprehensive list of all 9 languages, but only mentions two languages for each setting.\n\nSource: [Source 3: 2004.06465v3.pdf]",
-      "latency_seconds": 33.7
+      "answer": "According to Source 2, Corazza et al. [9], three languages (English, Italian, and German) were used in their study on multilingual hate speech classification.\n\nSource: Corazza et al. [9] (2004.06465v3.pdf)\n\nNote that Source 4 also mentions Spanish as a language covered in the study, but it only provides information about two datasets for this language, without mentioning the other languages used in the multilingual scenario.",
+      "latency_seconds": 27.4
     },
     {
       "id": 11,
@@ -129,8 +132,8 @@
       "retrieved_sources": [
         "2106.09592v2.pdf"
       ],
-      "answer": "I don't have enough information in the provided papers to answer this question.\n\nThe context provided mentions that there are high-level data lake philosophies, but it does not explicitly state what the difference is between a data lake and a data warehouse. The surveys only introduce the concept of a data lake landscape and discuss its evolution over time, without comparing it directly to a data warehouse.",
-      "latency_seconds": 34.3
+      "answer": "I don't have enough information in the provided papers to answer this.\n\n[Source 1: 2106.09592v2.pdf]",
+      "latency_seconds": 18.0
     },
     {
       "id": 12,
@@ -140,8 +143,8 @@
       "retrieved_sources": [
         "2303.00960v1.pdf"
       ],
-      "answer": "According to Paper 4, Customer Churn Prediction Model is trained with sufficient dataset to generalize and accurately predict customer churn. Additionally, the paper proposed a novel approach to calculate Shapley values for possible combination of features to explain which features are the most important/relevant features for a particular prediction, in order to improve model interpretability and transparency.\n\nSource: [Source 4: 2303.00960v1.pdf]",
-      "latency_seconds": 30.7
+      "answer": "Based on Source 1 and Source 3, it appears that customer churn prediction involves using a model that incorporates explainability and transparency to provide insights into how the model is making predictions. The exact methodology is not specified in the provided context, but it seems that the paper emphasizes the importance of model interpretability in understanding the churn prediction process.\n\nThe paper likely employs techniques such as feature attribution or partial dependence plots to provide explanations for the predicted churn probabilities, allowing customers to understand the factors contributing to their churn likelihood.",
+      "latency_seconds": 24.0
     },
     {
       "id": 13,
@@ -151,8 +154,8 @@
       "retrieved_sources": [
         "2502.02722v1.pdf"
       ],
-      "answer": "According to Source 4: 2502.02722v1.pdf, \"transfer learning for low-resource languages\" refers to creating models that leverage knowledge from high-resource languages to improve or enable NLP tasks in low-resource languages.\n\nSource 4: 2502.02722v1.pdf",
-      "latency_seconds": 23892.1
+      "answer": "According to Source 2: 2502.02722v1.pdf, model-based cross-lingual transfer can be used to generate synthetic data for low-resource languages.\n\n[Source 2: 2502.02722v1.pdf]",
+      "latency_seconds": 21.7
     },
     {
       "id": 14,
@@ -160,11 +163,10 @@
       "expected_source": "2310.14949v1.pdf",
       "source_hit": true,
       "retrieved_sources": [
-        "2310.14949v1.pdf",
-        "2203.11070v1.pdf"
+        "2310.14949v1.pdf"
       ],
-      "answer": "According to Source 2: 2310.14949v1.pdf, the sensors used for predictive maintenance in induction motors are:\n\n* Acoustic microphones\n* Accelerometer sensors\n* Vibration sensors (mentioned as one of the signals used by Chen et al., 2016)\n\nSource 3: 2310.14949v1.pdf also mentions vibration sensors.\n\nNote that Source 4: 2203.11070v1.pdf does not provide specific information on the sensors used for predictive maintenance in induction motors, but discusses the applicability of various methods in general.",
-      "latency_seconds": 43.4
+      "answer": "The sensors used for predictive maintenance in induction motors include IoT sensors such as vibration, temperature, and acoustic sensors.\n\nThis answer comes from Source 4: Glowacz et al. (2019), where it is mentioned that readily available IoT sensors are used to acquire data and perform analysis on amplitude of frequencies (MSAF-12).",
+      "latency_seconds": 24.7
     },
     {
       "id": 15,
@@ -174,8 +176,8 @@
       "retrieved_sources": [
         "2504.11199v2.pdf"
       ],
-      "answer": "According to Source 1: 2504.11199v2.pdf, Large Language Models (LLMs) are used for video summarization in the following manner:\n\n\"Translates video frames into a sequence of captions using a Multi-modal Large Language Model (M-LLM) and then assesses the importance of each caption.\"\n\nThis process is referred to as LLM-based Video Summarization (LLMVS).",
-      "latency_seconds": 35.6
+      "answer": "According to Source 4 [2504.11199v2.pdf], Large Language Models (LLMs) are used for video summarization by first generating descriptions of input video frames using an LLM, and then leveraging the output from this step to perform video summarization. Specifically, LLMs are applied in a multi-modal setting, where they translate video frames into a sequence of captions, which is then assessed to determine their importance.\n\nIn other words, LLMs are used as a tool for generating textual descriptions of individual video frames, and these descriptions are then combined with other modalities (e.g. visual features) to produce a summary of the entire video.",
+      "latency_seconds": 37.8
     },
     {
       "id": 16,
@@ -185,8 +187,8 @@
       "retrieved_sources": [
         "2601.03085v1.pdf"
       ],
-      "answer": "Anomaly detection in IoT sensor streams refers to the process of identifying unusual patterns or deviations from the normal behavior of industrial sensors in real-time. This can be done by analyzing data streams generated by various types of industrial sensors on a factory floor.\n\n[Source 1, Section 2]",
-      "latency_seconds": 27.9
+      "answer": "Anomaly detection in IoT sensor streams refers to the process of identifying unusual patterns or values that deviate from expected behavior in real-time data streams collected from industrial sensors on a factory floor.\n\nThis concept is discussed in [Source 4] where it mentions \"industrial sensors on the factory floor is transmitted to\" indicating that the context is about collecting and processing sensor data.",
+      "latency_seconds": 27.7
     },
     {
       "id": 17,
@@ -196,8 +198,8 @@
       "retrieved_sources": [
         "2208.03775v1.pdf"
       ],
-      "answer": "According to Source 3 [2208.03775v1.pdf], the deep learning architectures used for human action recognition include:\n\n* Convolutional Neural Networks (CNNs or Con-VNets) [92], [93], [94], [95]\n* Recurrent Neural Networks with Long Short-Term Memory (RNN-LSTMs) [96]\n* Deep Belief Networks (DBNs) [97]\n\nThese architectures are reviewed in this paper and provide a detailed view of the development process and the current state of progress in deep learning models applied to human action recognition.",
-      "latency_seconds": 33.2
+      "answer": "According to the provided context, specifically from Source 2 and Source 4, the deep learning architectures used for human action recognition include:\n\n1. Convolutional Neural Networks (CNNs or ConNets)\n2. Recurrent Neural Networks\n3. Multilayer perceptron\n4. Various architectures that combine CNNs with other models, such as multiscale 3D CNNs.\n\nThese architectures are mentioned in the context of human action recognition using skeleton data and RGB/depth information.",
+      "latency_seconds": 29.4
     },
     {
       "id": 18,
@@ -207,8 +209,8 @@
       "retrieved_sources": [
         "2510.19012v1.pdf"
       ],
-      "answer": "According to Source 3 [2510.19012v1.pdf], Apache Spark handles large-scale data processing by executing several operations, including downloading data from CSV files, transforming it, and loading it into an Apache Iceberg analytical table. Specifically, when processing a 5-megabyte CSV file, the performance of the Spark algorithm varies significantly depending on the amount of data.\n\nAdditionally, Source 4 [2510.19012v1.pdf] mentions that Spark supports in-memory processing, which significantly reduces the execution time compared to traditional disc-based computing, such as Hadoop MapReduce. This suggests that Apache Spark is well-suited for handling large-scale data processing due to its ability to process data in memory.\n\nIt's worth noting that the performance of Spark can vary depending on the amount of data and the programming language used (Source 1). However, the provided information suggests that Apache Spark is a viable option for large-scale data processing.",
-      "latency_seconds": 46.5
+      "answer": "According to Source 3 (2510.19012v1.pdf), Apache Spark handles large-scale data processing by providing high-performance parallel execution on clusters, which accelerates work with large datasets in a distributed environment.",
+      "latency_seconds": 21.0
     },
     {
       "id": 19,
@@ -218,8 +220,8 @@
       "retrieved_sources": [
         "2406.07437v2.pdf"
       ],
-      "answer": "The following graph-based methods are mentioned in the provided papers:\n\n1. GRATIS (General Graph Representation Learning Framework) - Source 1, Section 7\n2. Graph Neural Networks (GNNs) - Source 2, Section 3\n3. Graph isomorphism network for speech emotion recognition - Source 4, Paper by J. Liu and H. Wang\n4. GCN layer - Source 5, Section 11\n\nThese methods are used to generate strong graph representations with specific task topologies and multi-dimensional edge features for arbitrary inputs in speech emotion recognition tasks.",
-      "latency_seconds": 41.2
+      "answer": "The graph-based methods mentioned in the context are:\n\n1. Graph-based multi-Feature fusion method, where the features of the node itself are fused, and also the features of the neighbouring nodes are taken into account.\n2. The method described in Figure 3 and Section 5, which involves selecting the K nearest neighbors of each node as its neighbors.\n\n(Source: Source 1, [2406.07437v2.pdf], Section 11)",
+      "latency_seconds": 28.2
     },
     {
       "id": 20,
@@ -230,8 +232,8 @@
         "2502.10614v1.pdf",
         "2203.12609v1.pdf"
       ],
-      "answer": "According to Source 2 [2502.10614v1.pdf] and other sources such as [3], [4], and [5], the CNN architectures used for chest X-ray classification include:\n\n- Binary and multi-label classifiers\n- Advanced preprocessing techniques, such as imageresizing\n- Deep learning-based architectures (e.g., [3], [4])\n- Data augmentation and synthetic data generation (Source 4)\n- Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning (Source 5)",
-      "latency_seconds": 40.4
+      "answer": "The paper evaluated various CNN architectures, including:\n\n1. II (Source 5: 2502.10614v1.pdf)\n2. Chexnet (Source 4: 2203.12609v1.pdf)\n\nNote that the specific details of these architectures are not mentioned in the provided context, only their mention as part of the evaluation.",
+      "latency_seconds": 28.3
     }
   ]
 }
