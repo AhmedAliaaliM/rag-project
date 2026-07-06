@@ -1,0 +1,32 @@
+# Week 3 Findings — Chunking Strategy Comparison
+
+## Strategies Tested
+
+| Strategy | Chunk Size | Overlap | Total Chunks | Avg Length |
+|---|---|---|---|---|
+| v1_fixed_500 | 500 chars | 50 | 4354 | 429 chars |
+| v2_sentence_300 | 300 chars | 30 | 8548 | 216 chars |
+| v3_large_1000 | 1000 chars | 100 | 2319 | 839 chars |
+
+## Results
+
+| Strategy | Hit Rate | Avg Latency |
+|---|---|---|
+| v1_fixed_500 (baseline) | 20/20 (100%) | 40.5s |
+| v2_sentence_300 | 20/20 (100%) | 28.6s |
+| v3_large_1000 | 20/20 (100%) | 68.0s |
+
+## Winner: v2_sentence_300
+
+All three strategies achieved identical retrieval accuracy (100%).
+Selection was based on latency — v2 is 36% faster than baseline
+and 58% faster than v3.
+
+## Why v2 is faster
+Smaller chunks mean less text stuffed into each LLM prompt.
+Less tokens to process = faster generation time.
+
+## What we'd try next
+- Semantic chunking (group by meaning, not size)
+- Larger top_k retrieval (fetch 10 instead of 5)
+- Hybrid search (keyword + semantic combined)
