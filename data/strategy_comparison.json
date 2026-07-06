@@ -1,0 +1,23 @@
+[
+  {
+    "strategy": "v1_fixed_500",
+    "hits": 20,
+    "total": 20,
+    "hit_rate_pct": 100.0,
+    "avg_latency_seconds": 40.5
+  },
+  {
+    "strategy": "v2_sentence_300",
+    "hits": 20,
+    "total": 20,
+    "hit_rate_pct": 100.0,
+    "avg_latency_seconds": 28.6
+  },
+  {
+    "strategy": "v3_large_1000",
+    "hits": 20,
+    "total": 20,
+    "hit_rate_pct": 100.0,
+    "avg_latency_seconds": 68.0
+  }
+]
