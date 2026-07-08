@@ -1,0 +1,14 @@
+{
+  "What methods are used for multilingual hate speech detection?": {
+    "v2_structured": "ANSWER: The authors used SVM (Support Vector Machine) and Bi-LSTM (Bidirectional Long Short-Term Memory) models.\nEVIDENCE: The authors \"used models such as SVM, and Bi-LSTM to build hate speech detection models.\"\nSOURCE: 2004.06465v3.pdf\nCONFIDENCE: HIGH",
+    "v4_fewshot": "ANSWER:\nEVIDENCE: The authors mention using models such as SVM and Bi-LSTM for hate speech detection, but also indicate that their work is different from existing works due to its use of a larger set of languages and more datasets.\nSOURCE: Source 1: 2004.06465v3.pdf\nCONFIDENCE: MEDIUM"
+  },
+  "What deep learning model is used for demand forecasting?": {
+    "v2_structured": "ANSWER: Long Short-Term Memory (LSTM) neural networks.\nEVIDENCE: The paper states that \"The aim of this article is to evaluate the suitability of long short-term memory neural networks (LSTMs)\".\nSOURCE: 2008.08522v1.pdf\nCONFIDENCE: HIGH",
+    "v4_fewshot": "ANSWER: Long short-term memory (LSTM) neural networks.\nEVIDENCE: The paper states that \"the work presented in [2] uses LSTMs for demand forecasting\" and also mentions that it is the most advanced approach to LSTM-based demand forecasting found in related research.\nSOURCE: Source 1: 2008.08522v1.pdf\nCONFIDENCE: HIGH"
+  },
+  "What is the difference between a data lake and a data warehouse?": {
+    "v2_structured": "ANSWER: A data lake is characterized by being easy to access yet schema-on-read, while a data warehouse focuses on efficient data management through ETL processes.\nEVIDENCE: \"In existing data lake architecture proposals, there are mainly two high-level data lake philosophies... that is, pond and zone architectures\" (Source 3: 2106.09592v2.pdf)\nSOURCE: 2106.09592v2.pdf\nCONFIDENCE: HIGH",
+    "v4_fewshot": " ANSWER: A data lake provides flexible, scalable storage for structured and unstructured data, while a data warehouse is designed specifically for storing and managing structured data in a schema-on-write manner.\nEVIDENCE: Sources 1-3 describe the characteristics of data lakes (flexible, scalable storage) and the pond and zone architectures proposed to address data lake challenges. Source 4 mentions that \"data warehouses are...inefficient for such data management requirements\".\nSOURCE: Sources 1-4\nCONFIDENCE: MEDIUM"
+  }
+}
