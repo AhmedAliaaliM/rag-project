@@ -5,6 +5,9 @@ import chromadb
 import requests
 import json
 from reranker import rerank
+import sys
+sys.path.insert(0, "src")
+from prompt_templates import build_prompt_v2 as build_prompt
 
 CHROMA_DIR = Path("chroma_experiments")
 COLLECTION_NAME = "v2_sentence_300"
@@ -44,25 +47,6 @@ def retrieve(query, model, collection, top_k=TOP_K, filter_source=None):
         })
     return chunks
 
-def build_prompt(query, chunks):
-    context = ""
-    for i, chunk in enumerate(chunks):
-        context += f"\n[Source {i+1}: {chunk['source']}]\n{chunk['text']}\n"
-
-    prompt = f"""You are a research assistant. Answer the question using ONLY 
-the context provided below. If the context does not contain enough information 
-to answer, say "I don't have enough information in the provided papers to 
-answer this."
-
-Always mention which source paper your answer comes from.
-
-Context:
-{context}
-
-Question: {query}
-
-Answer:"""
-    return prompt
 
 
 def generate_answer(prompt):
