@@ -1,0 +1,433 @@
+{
+  "summary": {
+    "source_hit_rate_pct": 100.0,
+    "avg_quality_score": 3.4,
+    "avg_retrieval_seconds": 0.07,
+    "avg_rerank_seconds": 0.84,
+    "avg_generation_seconds": 23.48,
+    "avg_total_seconds": 24.4,
+    "model": "llama3.2:3b"
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "What methods are used for multilingual hate speech detection?",
+      "expected_source": "2004.06465v3.pdf",
+      "expected_answer": "LASER+LR for low-resource, BERT-based models for high-resource settings",
+      "answer": "ANSWER: SVM, Bi-LSTM, and BERT models are mentioned as methods used for multilingual hate speech detection.\nEVIDENCE: The authors \"used models such as SVM, and Bi-LSTM to build hate speech detection models\" (Source 1).\nSOURCE: 2004.06465v3.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.76,
+        "rerank_seconds": 11.67,
+        "generation_seconds": 37.34,
+        "total_seconds": 49.77
+      }
+    },
+    {
+      "id": 2,
+      "question": "How does federated learning protect data privacy?",
+      "expected_source": "2102.01255v1.pdf",
+      "expected_answer": "Data stays on device, only model updates are shared",
+      "answer": "ANSWER: Federated learning protects data privacy by allowing data processing on individual devices, resulting in better data protection and reduced reliance on central servers.\nEVIDENCE: \"data processing on the device results in better data privacy and better data protection\" (Source 4: 2102.01255v1.pdf)\nSOURCE: 2102.01255v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2601.03085v1.pdf",
+        "2102.01255v1.pdf",
+        "2102.01255v1.pdf",
+        "2102.01255v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.3,
+        "generation_seconds": 24.81,
+        "total_seconds": 25.15
+      }
+    },
+    {
+      "id": 3,
+      "question": "What is BERTopic and how does it compare to LDA?",
+      "expected_source": "2212.08459v1.pdf",
+      "expected_answer": "BERTopic uses BERT embeddings for topic modeling, outperforms LDA on short texts",
+      "answer": "ANSWER: BERTopic is a topic modeling technique used for short documents, particularly in NLP, and it has been shown to outperform Latent Dirichlet Allocation (LDA) on all-encompassing task performance.\nEVIDENCE: BERTopic istheleastsusceptibletoshortdocuments. measurethattakesoutliergenerationintoaccount\nSOURCE: 2212.08459v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2212.08459v1.pdf",
+        "2212.08459v1.pdf",
+        "2212.08459v1.pdf",
+        "2212.08459v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.36,
+        "generation_seconds": 23.27,
+        "total_seconds": 23.67
+      }
+    },
+    {
+      "id": 4,
+      "question": "What deep learning model is used for demand forecasting?",
+      "expected_source": "2008.08522v1.pdf",
+      "expected_answer": "LSTM neural networks for retail sales forecasting",
+      "answer": "ANSWER: Long short-term memory (LSTM) neural networks.\nEVIDENCE: \"The aim of this article is to evaluate the suitability of long short-term memory neural networks (LSTMs) for demand forecasting...\"\nSOURCE: 2008.08522v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2008.08522v1.pdf",
+        "2008.08522v1.pdf",
+        "2008.08522v1.pdf",
+        "2008.08522v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.25,
+        "generation_seconds": 21.45,
+        "total_seconds": 21.72
+      }
+    },
+    {
+      "id": 5,
+      "question": "What is concept drift in machine learning?",
+      "expected_source": "2203.11070v1.pdf",
+      "expected_answer": "Change in data distribution over time causing model performance degradation",
+      "answer": "ANSWER: Concept drift refers to a change in the joint distribution between the training and testing probability distributions, characterized as the stream learning correspondent of the dataset shift in the batch setting.\nEVIDENCE: \"Changes are characterized between the training and testing probability distributions [47].\" \nSOURCE: 2203.11070v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2203.11070v1.pdf",
+        "2203.11070v1.pdf",
+        "2203.11070v1.pdf",
+        "2203.11070v1.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.17,
+        "generation_seconds": 16.47,
+        "total_seconds": 16.67
+      }
+    },
+    {
+      "id": 6,
+      "question": "What is differential privacy and how is it used in machine learning?",
+      "expected_source": "2102.01255v1.pdf",
+      "expected_answer": "A formal privacy guarantee that limits what can be learned about individuals from a dataset",
+      "answer": "ANSWER: Insufficient information\nEVIDENCE: None found\nSOURCE: N/A\nCONFIDENCE: LOW\n\nThe provided context does not mention differential privacy or its use in machine learning. The sources mentioned do discuss explainability, interpretability, and fairness in machine learning, but they do not touch upon the concept of differential privacy.",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2303.00960v1.pdf",
+        "2103.00949v1.pdf",
+        "2103.00949v1.pdf",
+        "2102.01255v1.pdf"
+      ],
+      "quality_score": 2,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.27,
+        "generation_seconds": 18.57,
+        "total_seconds": 18.86
+      }
+    },
+    {
+      "id": 7,
+      "question": "What machine learning techniques are used for fake news detection?",
+      "expected_source": "2101.01142v1.pdf",
+      "expected_answer": "Ensemble methods including Random Forest, SVM, and deep learning approaches",
+      "answer": "ANSWER: Machine learning techniques such as NLP (Natural Language Processing) are used for fake news detection.\nEVIDENCE: \"...the most obvious approach to automatically recognizing fake news is NLP.\"\nSOURCE: 2101.01142v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2101.01142v1.pdf",
+        "2101.01142v1.pdf",
+        "2101.01142v1.pdf",
+        "2101.01142v1.pdf"
+      ],
+      "quality_score": 2,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.26,
+        "generation_seconds": 19.11,
+        "total_seconds": 19.39
+      }
+    },
+    {
+      "id": 8,
+      "question": "How does SHAP explain machine learning predictions?",
+      "expected_source": "2103.00949v1.pdf",
+      "expected_answer": "SHAP assigns each feature an importance value based on Shapley values from game theory",
+      "answer": "ANSWER: SHAP explains machine learning predictions by attributing the change in expected model output to each feature, allowing users to understand how individual features contribute to the final outcome.\nEVIDENCE: \"Figure2: SHAP(SHapleyAdditiveexPlanation)valuesattributetoeachfeaturethechangeintheexpectedmodelpredictionwhenconditioningonthatfeature.\"\nSOURCE: 2103.00949v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2303.00960v1.pdf",
+        "2303.00960v1.pdf",
+        "2103.00949v1.pdf",
+        "2303.00960v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.24,
+        "generation_seconds": 21.17,
+        "total_seconds": 21.44
+      }
+    },
+    {
+      "id": 9,
+      "question": "What is TinyML and what devices does it target?",
+      "expected_source": "2102.01255v1.pdf",
+      "expected_answer": "Running machine learning models on resource-constrained edge devices with low power",
+      "answer": "ANSWER: TinyML focuses on deploying machine learning and deep neural network models to resource-constrained devices powered by microcontrollers (MCUs) for low latency and communication bandwidth constraints, specifically targeting embedded devices.\nEVIDENCE: \"TinyML focuses on deploying machine learning and deep neural network models to the embedded, resource-constrained devices powered by microcontrollers (MCUs)\".\nSOURCE: 2102.01255v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2102.01255v1.pdf",
+        "2102.01255v1.pdf",
+        "2102.01255v1.pdf",
+        "2102.01255v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.16,
+        "generation_seconds": 21.27,
+        "total_seconds": 21.45
+      }
+    },
+    {
+      "id": 10,
+      "question": "What languages are covered in the multilingual hate speech study?",
+      "expected_source": "2004.06465v3.pdf",
+      "expected_answer": "9 languages from 16 different sources",
+      "answer": "ANSWER: English, Italian, and German.\nEVIDENCE: Corazza et al. [9] used three datasets from three languages (English, Italian, and German) to study the multilingual hate speech classification.\nSOURCE: Corazza et al. [9]\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf",
+        "2004.06465v3.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.02,
+        "rerank_seconds": 0.22,
+        "generation_seconds": 22.08,
+        "total_seconds": 22.33
+      }
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between a data lake and a data warehouse?",
+      "expected_source": "2106.09592v2.pdf",
+      "expected_answer": "Data lakes store raw unstructured data, warehouses store structured processed data",
+      "answer": "ANSWER: A data lake provides flexible, scalable storage for large amounts of raw data from various sources, whereas a data warehouse is designed for structured data that has undergone transformation, loading, and processing, typically using ETL processes.\nEVIDENCE: \"A data lake should provide a low-cost data storage that is easy to access, yet in a schema-on-read manner\" (Source 3).\nSOURCE: 2106.09592v2.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2106.09592v2.pdf",
+        "2106.09592v2.pdf",
+        "2106.09592v2.pdf",
+        "2106.09592v2.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.02,
+        "rerank_seconds": 0.33,
+        "generation_seconds": 22.1,
+        "total_seconds": 22.45
+      }
+    },
+    {
+      "id": 12,
+      "question": "How is customer churn prediction done with explainability?",
+      "expected_source": "2303.00960v1.pdf",
+      "expected_answer": "XGBoost model with SHAP values to explain which features drive churn",
+      "answer": "ANSWER: Customer churn prediction is done using models that are made highly interpretable, transparent, and explainable to potential customers, enabling them to understand how the model is making predictions.\nEVIDENCE: [Source 2: 2303.00960v1.pdf] \"To deal with such real-world problems, Paper emphasize the Model interpretability which is an important metric to help customers to understand how Churn Prediction Model is making predictions\"\nSOURCE: 2303.00960v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2303.00960v1.pdf",
+        "2303.00960v1.pdf",
+        "2303.00960v1.pdf",
+        "2303.00960v1.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.17,
+        "generation_seconds": 19.53,
+        "total_seconds": 19.73
+      }
+    },
+    {
+      "id": 13,
+      "question": "What is transfer learning for low-resource languages?",
+      "expected_source": "2502.02722v1.pdf",
+      "expected_answer": "Using models trained on high-resource languages and fine-tuning for low-resource ones",
+      "answer": "ANSWER: Transfer learning for low-resource languages involves using data and models from high-resource languages to perform tasks in low-resource languages where the resources are scarce or non-existent.\nEVIDENCE: This thesis explores cross-lingual transfer learning for sequential labeling tasks. (Source 4: 2502.02722v1.pdf)\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2502.02722v1.pdf",
+        "2502.02722v1.pdf",
+        "2502.02722v1.pdf",
+        "2502.02722v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.2,
+        "generation_seconds": 17.7,
+        "total_seconds": 17.93
+      }
+    },
+    {
+      "id": 14,
+      "question": "What sensors are used for predictive maintenance in induction motors?",
+      "expected_source": "2310.14949v1.pdf",
+      "expected_answer": "IoT sensors measuring vibration, temperature, and current",
+      "answer": "ANSWER: IoT sensors, specifically readily available ones, to acquire data.\nEVIDENCE: \"...and readily available IoT sensors to acquire data...\"\nSOURCE: 2310.14949v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2310.14949v1.pdf",
+        "2310.14949v1.pdf",
+        "2310.14949v1.pdf",
+        "2310.14949v1.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.26,
+        "generation_seconds": 19.17,
+        "total_seconds": 19.46
+      }
+    },
+    {
+      "id": 15,
+      "question": "How are LLMs used for video summarization?",
+      "expected_source": "2504.11199v2.pdf",
+      "expected_answer": "LLMs score keyframe and segment importance to generate summaries",
+      "answer": "ANSWER: LLMs generate captions for each input video frame using a Multi-modal Large Language Model (M-LLM), and then assess the importance of each caption.\nEVIDENCE: \"...generate descriptions of input video frames using a LLM...\" \nSOURCE: 2504.11199v2.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2504.11199v2.pdf",
+        "2504.11199v2.pdf",
+        "2504.11199v2.pdf",
+        "2504.11199v2.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.25,
+        "generation_seconds": 20.3,
+        "total_seconds": 20.58
+      }
+    },
+    {
+      "id": 16,
+      "question": "What is anomaly detection in IoT sensor streams?",
+      "expected_source": "2601.03085v1.pdf",
+      "expected_answer": "Real-time detection of unusual patterns in industrial sensor data with concept drift adaptation",
+      "answer": "ANSWER: Anomaly detection in IoT sensor streams refers to identifying unusual patterns or events in real-time data streams from IoT devices, which can indicate potential security threats, equipment failures, or other issues.\nEVIDENCE: The paper discusses the application of federated-learning-based anomaly detection for novel concept detection in IoT security attacks and proposes a method for detecting fault occurrence in real-time with streaming data.\nSOURCE: [2601.03085v1.pdf]\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2601.03085v1.pdf",
+        "2601.03085v1.pdf",
+        "2310.14949v1.pdf",
+        "2601.03085v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.03,
+        "rerank_seconds": 0.24,
+        "generation_seconds": 25.58,
+        "total_seconds": 25.85
+      }
+    },
+    {
+      "id": 17,
+      "question": "What deep learning architectures are used for human action recognition?",
+      "expected_source": "2208.03775v1.pdf",
+      "expected_answer": "CNNs, RNNs, LSTMs, and Transformer-based models for video classification",
+      "answer": "ANSWER: Convolutional Neural Networks (CNNs or ConNets), Recurrent Neural Networks, and other deep architectures such as the LSTM model proposed by Srivastava et al.\nEVIDENCE: The paper lists Convolutional Neural Networks (CNNs or ConNets) [92], Recurrent Neural Networks Accuracy on the HMDB-51 dataset [61], and mentions another deep architecture consisting of two LSTMs - the encoder LSTM and the decoder LSTM proposed by Srivastava et al. [264].\nSOURCE: 2208.03775v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2208.03775v1.pdf",
+        "2208.03775v1.pdf",
+        "2208.03775v1.pdf",
+        "2208.03775v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.04,
+        "rerank_seconds": 0.38,
+        "generation_seconds": 37.36,
+        "total_seconds": 37.79
+      }
+    },
+    {
+      "id": 18,
+      "question": "How does Apache Spark handle large scale data processing?",
+      "expected_source": "2510.19012v1.pdf",
+      "expected_answer": "Distributed in-memory computation across clusters using RDDs and DataFrames",
+      "answer": "ANSWER: Apache Spark handles large-scale data processing by providing high-performance parallel execution on clusters, accelerating work with large data sets in a distributed environment.\nEVIDENCE: ...which provides high-performance parallel execution on clusters, accelerating work with large data sets in a distributed environment\nSOURCE: Source 2: 2510.19012v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2510.19012v1.pdf",
+        "2510.19012v1.pdf",
+        "2510.19012v1.pdf",
+        "2510.19012v1.pdf"
+      ],
+      "quality_score": 4,
+      "latency": {
+        "retrieval_seconds": 0.12,
+        "rerank_seconds": 0.4,
+        "generation_seconds": 30.44,
+        "total_seconds": 30.96
+      }
+    },
+    {
+      "id": 19,
+      "question": "What graph-based methods are used for speech emotion recognition?",
+      "expected_source": "2406.07437v2.pdf",
+      "expected_answer": "Graph neural networks combining acoustic and linguistic features",
+      "answer": "ANSWER: Graph-based multi-Feature fusion method and selecting the K nearest neighbors of each node as its neighbors.\nEVIDENCE: \"at the same time, we select the K nearest neighbors of each node as its neighbors\" and \"Prior to this, multi-dimentional edge features have been widely used in areas 65,66,67,81\".\nSOURCE: 2406.07437v2.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2406.07437v2.pdf",
+        "2406.07437v2.pdf",
+        "2406.07437v2.pdf",
+        "2406.07437v2.pdf"
+      ],
+      "quality_score": 3,
+      "latency": {
+        "retrieval_seconds": 0.04,
+        "rerank_seconds": 0.36,
+        "generation_seconds": 29.17,
+        "total_seconds": 29.57
+      }
+    },
+    {
+      "id": 20,
+      "question": "What CNN architectures are used for chest X-ray classification?",
+      "expected_source": "2502.10614v1.pdf",
+      "expected_answer": "ResNet, DenseNet, and EfficientNet benchmarked for thoracic disease detection",
+      "answer": "ANSWER: II, binary, and multi-label classifiers.\nEVIDENCE: ...we evaluate various CNN architectures, including II...\nSOURCE: 2502.10614v1.pdf\nCONFIDENCE: HIGH",
+      "source_hit": true,
+      "retrieved_sources": [
+        "2502.10614v1.pdf",
+        "2502.10614v1.pdf",
+        "2502.10614v1.pdf",
+        "2502.10614v1.pdf"
+      ],
+      "quality_score": 2,
+      "latency": {
+        "retrieval_seconds": 0.05,
+        "rerank_seconds": 0.38,
+        "generation_seconds": 22.74,
+        "total_seconds": 23.17
+      }
+    }
+  ]
+}
