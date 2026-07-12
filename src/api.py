@@ -1,6 +1,9 @@
 import sys
 import os
 import shutil
+import logging
+import time
+from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -9,11 +12,21 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 
-sys.path.insert(0, "src")
+# Create logs directory if it doesn't exist
+Path("logs").mkdir(exist_ok=True)
 
-from chunk_documents import chunk_strategy_v2, load_documents
-from embed_and_store import embed_and_store as _embed_store
-from rag_pipeline import load_retriever, retrieve, build_prompt, generate_answer
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("logs/api.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+sys.path.insert(0, "src")
+from rag_pipeline import load_retriever, retrieve, generate_answer
 from reranker import rerank
 from prompt_templates import build_prompt_v2
 
@@ -57,10 +70,10 @@ def health():
 
 @app.post("/ask", response_model=AnswerResponse)
 def ask(request: QuestionRequest):
-    import time
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty")
 
+    logger.info(f"Question received: {request.question[:80]}")
     t0 = time.time()
 
     # Retrieve
@@ -76,8 +89,9 @@ def ask(request: QuestionRequest):
     answer = generate_answer(prompt)
 
     latency = round(time.time() - t0, 2)
-
     sources = list(set(c["source"] for c in reranked))
+
+    logger.info(f"Answer generated in {latency}s | Sources: {sources}")
 
     return AnswerResponse(
         question=request.question,
@@ -98,6 +112,8 @@ async def upload_document(file: UploadFile = File(...)):
     save_path = UPLOAD_DIR / file.filename
     with open(save_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
+
+    logger.info(f"File uploaded: {file.filename}")
 
     return {
         "message": f"File '{file.filename}' uploaded successfully.",
