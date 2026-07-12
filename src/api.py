@@ -11,8 +11,11 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
+from dotenv import load_dotenv
 
-# Create logs directory if it doesn't exist
+load_dotenv()
+
+# Create logs directory
 Path("logs").mkdir(exist_ok=True)
 
 logging.basicConfig(
@@ -29,6 +32,12 @@ sys.path.insert(0, "src")
 from rag_pipeline import load_retriever, retrieve, generate_answer
 from reranker import rerank
 from prompt_templates import build_prompt_v2
+
+# LLM config
+USE_GROQ = os.getenv("USE_GROQ", "false").lower() == "true"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = "llama3-8b-8192"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
 
 app = FastAPI(title="RAG Research Assistant", version="1.0")
 
@@ -47,7 +56,41 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 # Load retriever once at startup
 print("Loading retriever...")
 _model, _collection = load_retriever()
-print("Retriever ready.")
+print(f"Retriever ready. LLM backend: {'Groq' if USE_GROQ else 'Ollama'}")
+
+
+def generate_with_groq(prompt: str) -> str:
+    """Generate answer using Groq API."""
+    from groq import Groq
+    client = Groq(api_key=GROQ_API_KEY)
+    response = client.chat.completions.create(
+        model=GROQ_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=1024,
+        temperature=0.1
+    )
+    return response.choices[0].message.content
+
+
+def generate_with_ollama(prompt: str) -> str:
+    """Generate answer using local Ollama."""
+    import requests
+    try:
+        response = requests.post(
+            OLLAMA_URL,
+            json={"model": "llama3.2:3b", "prompt": prompt, "stream": False},
+            timeout=120
+        )
+        return response.json()["response"]
+    except Exception as e:
+        return f"ERROR: {e}"
+
+
+def generate(prompt: str) -> str:
+    """Route to Groq or Ollama based on config."""
+    if USE_GROQ:
+        return generate_with_groq(prompt)
+    return generate_with_ollama(prompt)
 
 
 class QuestionRequest(BaseModel):
@@ -61,11 +104,16 @@ class AnswerResponse(BaseModel):
     answer: str
     sources: list
     latency_seconds: float
+    llm_backend: str
 
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "collection": COLLECTION_NAME}
+    return {
+        "status": "ok",
+        "collection": COLLECTION_NAME,
+        "llm_backend": "groq" if USE_GROQ else "ollama"
+    }
 
 
 @app.post("/ask", response_model=AnswerResponse)
@@ -86,7 +134,7 @@ def ask(request: QuestionRequest):
 
     # Generate
     prompt = build_prompt_v2(request.question, reranked)
-    answer = generate_answer(prompt)
+    answer = generate(prompt)
 
     latency = round(time.time() - t0, 2)
     sources = list(set(c["source"] for c in reranked))
@@ -97,7 +145,8 @@ def ask(request: QuestionRequest):
         question=request.question,
         answer=answer,
         sources=sources,
-        latency_seconds=latency
+        latency_seconds=latency,
+        llm_backend="groq" if USE_GROQ else "ollama"
     )
 
 
@@ -117,8 +166,7 @@ async def upload_document(file: UploadFile = File(...)):
 
     return {
         "message": f"File '{file.filename}' uploaded successfully.",
-        "note": "Re-index required to include in search. "
-                "Restart the server after uploading new documents."
+        "note": "Re-index required to include in search."
     }
 
 
