@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma_experiments:/app/chroma_experiments
+      - ./logs:/app/logs
+    env_file:
+      - .env
+
+  frontend:
+    build: .
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    env_file:
+      - .env
+    environment:
+      - API_URL=http://api:8000
+    command: ["streamlit", "run", "src/app.py",
+              "--server.port=8501",
+              "--server.address=0.0.0.0"]

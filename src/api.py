@@ -38,7 +38,8 @@ USE_GROQ = os.getenv("USE_GROQ", "false").lower() == "true"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_MODEL = "llama3-8b-8192"
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
-
+print(f"DEBUG OLLAMA_URL: {OLLAMA_URL}")
+print(f"DEBUG USE_GROQ: {USE_GROQ}")
 app = FastAPI(title="RAG Research Assistant", version="1.0")
 
 app.add_middleware(
@@ -158,16 +159,83 @@ async def upload_document(file: UploadFile = File(...)):
             detail="Only PDF files are supported"
         )
 
+    # Save uploaded file
     save_path = UPLOAD_DIR / file.filename
     with open(save_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
 
     logger.info(f"File uploaded: {file.filename}")
 
-    return {
-        "message": f"File '{file.filename}' uploaded successfully.",
-        "note": "Re-index required to include in search."
-    }
+    try:
+        # Extract text
+        import pdfplumber
+        import re
+        from sentence_transformers import SentenceTransformer
+
+        pages = []
+        with pdfplumber.open(save_path) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text() or ""
+                pages.append(text)
+
+        raw_text = "\n\n".join(pages)
+
+        # Clean text
+        raw_text = re.sub(r"^.*viXra.*$", "", raw_text, flags=re.MULTILINE)
+        raw_text = re.sub(r"https?://\S+", "", raw_text)
+        raw_text = re.sub(r"[ \t]+", " ", raw_text)
+        raw_text = re.sub(r"\n{3,}", "\n\n", raw_text)
+        lines = [
+            line for line in raw_text.split("\n")
+            if not re.fullmatch(r"\s*\d+\s*", line)
+        ]
+        cleaned = "\n".join(lines).strip()
+
+        if len(cleaned) < 100:
+            raise ValueError("Very little text extracted — may be a scanned PDF")
+
+        # Chunk
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=300,
+            chunk_overlap=30,
+            separators=[". ", "! ", "? ", "\n\n", "\n", " ", ""]
+        )
+        chunks = splitter.split_text(cleaned)
+        chunks = [c for c in chunks if len(c.strip()) >= 50]
+
+        # Embed and add to existing Chroma collection
+        embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+        embeddings = embed_model.encode(chunks).tolist()
+
+        existing_count = _collection.count()
+        ids = [f"upload_{file.filename}_{i}" for i in range(len(chunks))]
+        metadatas = [
+            {"source": file.filename, "chunk_index": i}
+            for i in range(len(chunks))
+        ]
+
+        _collection.add(
+            documents=chunks,
+            embeddings=embeddings,
+            metadatas=metadatas,
+            ids=ids
+        )
+
+        logger.info(f"Indexed {len(chunks)} chunks from {file.filename}")
+
+        return {
+            "message": f"'{file.filename}' uploaded and indexed successfully.",
+            "chunks_added": len(chunks),
+            "total_chunks_in_db": existing_count + len(chunks)
+        }
+
+    except Exception as e:
+        logger.error(f"Indexing failed for {file.filename}: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"File saved but indexing failed: {str(e)}"
+        )
 
 
 if __name__ == "__main__":
