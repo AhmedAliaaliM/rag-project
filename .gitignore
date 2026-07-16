@@ -11,3 +11,4 @@ chroma_db/
 chroma_experiments/
 chroma_db/
 logs/
+.streamlit/secrets.toml
