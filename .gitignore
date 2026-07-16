@@ -8,7 +8,6 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 chroma_db/
-chroma_experiments/
 chroma_db/
 logs/
 .streamlit/secrets.toml
