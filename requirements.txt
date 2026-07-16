@@ -13,3 +13,5 @@ httpx
 python-multipart
 requests
 groq
+torch
+torchvision
